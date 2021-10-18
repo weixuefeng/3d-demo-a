@@ -15,4 +15,4 @@ export default function House(props) {
   )
 }
 
-useGLTF.preload('https://market-assets.fra1.cdn.digitaloceanspaces.com/market-assets/models/house1/model.gltf')
+// useGLTF.preload('https://market-assets.fra1.cdn.digitaloceanspaces.com/market-assets/models/house1/model.gltf')
