@@ -10,6 +10,9 @@ import Model from "./Model"
 import Tree from "./Tree"
 import Avatar from "./Avatar"
 import Car from "./Car"
+import Heli from "./Heli"
+import Eurotown from "./Eurotown"
+import Gundam from "./Gundam"
 
 import { VRCanvas, DefaultXRControllers, Hands, useXR } from "@react-three/xr"
 import { useGLTF, Environment, Stage, OrbitControls } from "@react-three/drei"
@@ -27,7 +30,7 @@ export default function App() {
       gl.shadowMap.enabled = true
       gl.shadowMap.type = THREE.PCFSoftShadowMap
     }}>
-      <Sky sunPosition={[50, 80, 100]} />
+      <Sky sunPosition={[50, 80, 100]} scale={1000} />
       <Stars />
       {/* <fog attach="fog" args={["white", 0, 40]} /> */}
       <ambientLight intensity={0.5} />
@@ -42,8 +45,8 @@ export default function App() {
         shadowCamR={-53}
       />
       {/* <PointLight intensity={0.3} position={[29, 50, 60]} /> */}
-      <fog attach="fog" args={["#f0f4f5", 30, 250]}/>
-      <Physics gravity={[0, -20, 0]}>
+      {/* <fog attach="fog" args={["#f0f4f5", 30, 250]}/> */}
+      <Physics gravity={[0, -2, 0]}>
         <Ground />
         <Player />
         {/* <Cube position={[0, 0.5, 0]} /> */}
@@ -65,12 +68,17 @@ export default function App() {
         <Car position={[6, 1, 6]} scale="1" />
         <Target position={[-3, 0, -8]} scale="0.7" />
 
+        <Heli position={[-2, 0, 6]} scale="3" />
+        <Gundam position={[-30, 0, -30]} scale="0.1" />
+
+        <Eurotown position={[50, 0, 50]} scale="1" />
+
 
         <Cubes />
       </Physics>
       <PointerLockControls />
-      {/* <Hands />
-      <DefaultXRControllers /> */}
+      <Hands />
+      <DefaultXRControllers />
     </VRCanvas>
   )
 }
