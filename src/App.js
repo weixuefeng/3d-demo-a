@@ -44,7 +44,7 @@ function MainScene() {
       />
       {/* <PointLight intensity={0.3} position={[29, 50, 60]} /> */}
       {/* <fog attach="fog" args={["#f0f4f5", 30, 250]}/> */}
-      <Physics gravity={[0, -2, 0]}>
+      <Physics gravity={[0, -9.8, 0]}>
         <Ground />
         <Player />
         {/* <Cube position={[0, 0.5, 0]} /> */}
