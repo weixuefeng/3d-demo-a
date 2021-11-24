@@ -15,21 +15,19 @@ import Eurotown from "./Eurotown"
 import Gundam from "./Gundam"
 
 import { VRCanvas, DefaultXRControllers, Hands, useXR } from "@react-three/xr"
-import { useGLTF, Environment, Stage, OrbitControls } from "@react-three/drei"
-import { Suspense, useLayoutEffect } from "react"
+import { useGLTF} from "@react-three/drei"
 import * as THREE from "three"
-import Camera from "./components/Camera/Camera"
 import DirectionalLight from "./components/DirectionalLight/DirectionalLight"
+import Loading from "./components/loading/Loading"
 
-import PointLight from "./components/PointLight/PointLight"
-
-export default function App() {
+function MainScene() {
   return (
     <VRCanvas
-    onCreated={({ gl }) => { 
-      gl.shadowMap.enabled = true
-      gl.shadowMap.type = THREE.PCFSoftShadowMap
-    }}>
+      style={{ height: '992px' }}
+      onCreated={({ gl }) => {
+        gl.shadowMap.enabled = true
+        gl.shadowMap.type = THREE.PCFSoftShadowMap
+      }}>
       <Sky sunPosition={[50, 80, 100]} scale={1000} />
       <Stars />
       {/* <fog attach="fog" args={["white", 0, 40]} /> */}
@@ -81,6 +79,13 @@ export default function App() {
       <DefaultXRControllers />
     </VRCanvas>
   )
+}
+
+export default function App() {
+  return <div>
+    <MainScene/>
+    <Loading/>
+  </div>
 }
 
 
